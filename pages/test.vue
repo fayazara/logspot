@@ -35,7 +35,7 @@
               <p>Loading Feed</p>
             </div>
             <iframe
-              src="http://localhost:3000/widget"
+              src="https://logspot.vercel.app/widget"
               class="h-full w-full"
               :class="iframeLoaded ? 'opacity-100' : 'opacity-0'"
               frameborder="0"
