@@ -16,7 +16,7 @@
     >
       <div
         v-if="show"
-        class="fixed inset-0 bg-gray-100 bg-opacity-50 backdrop-blur-sm transition-opacity"
+        class="fixed inset-0 bg-gray-700 bg-opacity-50 backdrop-blur-sm transition-opacity"
       ></div>
     </transition>
     <div class="fixed inset-0 overflow-hidden">
@@ -25,14 +25,30 @@
           class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10"
         >
           <transition
-            enter-active-class="transform transition ease-in-out duration-500 sm:duration-700"
+            enter-active-class="transform transition ease-in-out duration-500"
             enter-from-class="translate-x-full"
             enter-to-class="translate-x-0"
-            leave-active-class="transform transition ease-in-out duration-500 sm:duration-700"
+            leave-active-class="transform transition ease-in-out duration-500"
             leave-from-class="translate-x-0"
             leave-to-class="translate-x-full"
           >
-            <div v-if="show" class="pointer-events-auto w-screen max-w-md">
+            <div
+              v-if="show"
+              class="pointer-events-auto w-screen max-w-md relative"
+            >
+              <div
+                class="absolute top-0 left-0 -ml-8 flex pt-4 pr-2 sm:-ml-10 sm:pr-4"
+              >
+                <button
+                  @click="close"
+                  type="button"
+                  class="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+                >
+                  <span class="sr-only">Close panel</span>
+
+                  <icon name="fluent:dismiss-24-filled" class="h-6 w-6" />
+                </button>
+              </div>
               <div class="h-full overflow-y-scroll bg-white shadow-xl">
                 <!-- The Feed iframe goes here -->
                 <div
@@ -43,7 +59,7 @@
                   <p>Loading Feed</p>
                 </div>
                 <iframe
-                  src="https://logspot.vercel.app/widget"
+                  src="/widget"
                   class="h-full w-full"
                   :class="iframeLoaded ? 'opacity-100' : 'opacity-0'"
                   frameborder="0"
@@ -60,13 +76,19 @@
 </template>
 
 <script setup>
+const emit = defineEmits(["close"]);
 import { ref } from "vue";
 const show = ref(false);
 const iframeLoaded = ref(false);
-
+function close() {
+  show.value = false;
+  setTimeout(() => {
+    document.body.style.removeProperty("overflow");
+    emit("close");
+  }, 500);
+}
 onMounted(() => {
   show.value = true;
+  document.body.style.setProperty("overflow", "hidden");
 });
 </script>
-
-<style></style>

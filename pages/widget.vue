@@ -38,6 +38,6 @@
 
 <script setup>
 const { data } = await useAsyncData("feed", () =>
-  queryContent("/posts").limit(3).find()
+  queryContent("/posts").find()
 );
 </script>

@@ -1,128 +1,146 @@
 <template>
-  <main class="flex bg-slate-100">
+  <main class="flex bg-slate-100 relative">
     <aside
-      class="border-r w-16 h-screen bg-sky-600 sticky top-0 flex flex-col items-center justify-between py-8 flex-shrink-0"
+      class="border-r w-20 h-screen bg-slate-100 sticky top-0 flex flex-col items-center justify-between py-8 flex-shrink-0"
     >
-      <base-icon
-        name="fluent:app-folder-48-regular"
-        class="h-7 w-7 text-white"
-      />
-      <div class="relative">
-        <button @click="showChangelog = !showChangelog">
+      <!-- Sample Logo  -->
+      <svg
+        class="h-8 w-auto"
+        viewBox="0 0 50 39"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z"
+          class="ccompli1"
+          fill="#007AFF"
+        ></path>
+        <path
+          d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
+          class="ccustom"
+          fill="#312ECB"
+        ></path>
+      </svg>
+      <!-- Sample Logo  -->
+      <div class="space-y-8">
+        <base-icon
+          name="fluent:channel-24-regular"
+          class="h-6 w-6 text-sky-600"
+        />
+        <base-icon
+          name="fluent:data-pie-24-regular"
+          class="h-6 w-6 text-slate-400"
+        />
+        <base-icon
+          name="fluent:mail-inbox-24-regular"
+          class="h-6 w-6 text-slate-400"
+        />
+        <base-icon
+          name="fluent:wallet-credit-card-24-regular"
+          class="h-6 w-6 text-slate-400"
+        />
+      </div>
+      <div class="space-y-8">
+        <button @click="sidebar = true" class="relative">
           <base-icon
-            name="fluent:notepad-24-regular"
-            class="h-7 w-7 text-white"
+            name="fluent:panel-right-28-filled"
+            class="h-6 w-6 text-slate-400"
           />
         </button>
-        <transition
-          enter-active-class="transition ease-out duration-100"
-          enter-from-class="transform opacity-0 scale-95"
-          enter-to-class="transform opacity-100 scale-100"
-          leave-active-class="transition ease-in duration-75"
-          leave-from-class="transform opacity-100 scale-100"
-          leave-to-class="transform opacity-0 scale-95"
-        >
-          <div
-            v-if="showChangelog"
-            class="h-[450px] w-80 bg-white rounded-lg shadow-2xl absolute left-[calc(50%+14px)] bottom-[calc(50%+14px)] origin-bottom-left overflow-hidden"
-            ref="floatingWidget"
+        <div class="relative" ref="floatingWidget">
+          <button @click="showChangelog = !showChangelog">
+            <base-icon
+              name="fluent:note-24-regular"
+              class="h-6 w-6 text-slate-400"
+            />
+          </button>
+          <transition
+            enter-active-class="transition ease-out duration-100"
+            enter-from-class="transform opacity-0 scale-95"
+            enter-to-class="transform opacity-100 scale-100"
+            leave-active-class="transition ease-in duration-75"
+            leave-from-class="transform opacity-100 scale-100"
+            leave-to-class="transform opacity-0 scale-95"
           >
             <div
-              v-if="!iframeLoaded"
-              class="h-full w-full flex items-center justify-center flex-col space-y-2 text-slate-700"
+              v-if="showChangelog"
+              class="h-[450px] w-80 bg-white rounded-lg shadow-2xl absolute left-[calc(50%+14px)] bottom-[calc(50%+14px)] origin-bottom-left overflow-hidden border border-gray-100"
             >
-              <base-spinner class="h-5 w-5" />
-              <p>Loading Feed</p>
+              <div
+                v-if="!iframeLoaded"
+                class="h-full w-full flex items-center justify-center flex-col space-y-2 text-slate-700"
+              >
+                <base-spinner class="h-5 w-5" />
+                <p>Loading Feed</p>
+              </div>
+              <iframe
+                src="/widget"
+                class="h-full w-full"
+                :class="iframeLoaded ? 'opacity-100' : 'opacity-0'"
+                frameborder="0"
+                @load="iframeLoaded = true"
+              ></iframe>
             </div>
-            <iframe
-              src="https://logspot.vercel.app/widget"
-              class="h-full w-full"
-              :class="iframeLoaded ? 'opacity-100' : 'opacity-0'"
-              frameborder="0"
-              @load="iframeLoaded = true"
-            ></iframe>
-          </div>
-        </transition>
+          </transition>
+        </div>
       </div>
     </aside>
-    <section class="p-4 flex-grow overflow-x-auto">
-      <div class="max-w-4xl mx-auto py-12">
-        <div class="prose max-w-none">
-          <h1>This is a test page</h1>
-          <button
-            class="bg-slate-900 px-4 py-2 rounded-lg text-white"
-            @click="sidebar = true"
-          >
-            Open Changelog as an overlay &rarr;
-          </button>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-            mollitia facilis sunt eius quos iusto, nihil recusandae tenetur
-            optio nemo corporis debitis aliquam perferendis voluptatem,
-            provident tempore cum, libero alias?
-          </p>
-          <img
-            src="https://source.unsplash.com/random/1280x720"
-            alt="Random Image"
-            class="rounded-lg border"
+    <section class="flex-grow">
+      <header
+        class="border-b p-4 flex items-center justify-between sticky top-0 bg-white"
+      >
+        <div class="flex w-1/2 p-3 items-center bg-slate-200 rounded-full">
+          <base-icon
+            name="fluent:search-24-filled"
+            class="h-4 w-4 text-slate-400"
           />
-          <h3>This is a sub heading</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum magni
-            facere deserunt nulla totam error sequi beatae blanditiis qui
-            exercitationem sit eius dignissimos, nobis ullam similique fuga
-            iusto quo reprehenderit?
+          <p class="text-sm text-slate-400 ml-4 truncate">
+            Search your transactions, accounts, cards etc...
           </p>
-          <img
-            src="https://source.unsplash.com/random/1280x720?random=123123"
-            alt="Random Image"
-            class="rounded-lg border"
-          />
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque,
-            quas. Voluptatibus magni recusandae amet nihil maxime. Ipsam quas
-            similique nisi sequi cupiditate quia, quo consequatur atque facere
-            excepturi, totam et.
-          </p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <div class="rounded-full bg-slate-200 p-3">
+            <base-icon
+              name="fluent:alert-badge-24-filled"
+              class="h-5 w-5 text-slate-600"
+            />
+          </div>
+          <div class="rounded-full bg-slate-200 p-3">
+            <base-icon
+              name="fluent:person-24-filled"
+              class="h-5 w-5 text-slate-600"
+            />
+          </div>
+        </div>
+      </header>
+      <div class="p-4">
+        <div class="mt-4 space-y-8">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div
+              class="h-40 rounded-lg bg-white border shadow-sm"
+              v-for="n in 4"
+              :key="n"
+            ></div>
+          </div>
+          <div class="grid grid-cols-4 lg:grid-cols-2 gap-6">
+            <div
+              class="h-96 rounded-lg bg-white border shadow-sm"
+              v-for="n in 4"
+              :key="n"
+            ></div>
+          </div>
         </div>
       </div>
     </section>
-    <!-- // Slide over widget -->
-    <base-sidebar v-if="sidebar" @close="sidebar = false" ref="overlayWidget" />
-    <!-- // Slide over widget -->
+    <test-sidebar v-if="sidebar" @close="sidebar = false" ref="overlayWidget" />
   </main>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import { onClickOutside } from "@vueuse/core";
 const showChangelog = ref(false);
 const iframeLoaded = ref(false);
 const sidebar = ref(false);
 const floatingWidget = ref(null);
-const overlayWidget = ref(null);
-
-onClickOutside(floatingWidget, () => (showChangelog.value = false));
-onClickOutside(overlayWidget, () => (sidebar.value = false));
+useClickOutside(floatingWidget, () => (showChangelog.value = false));
 </script>
-
-<style scoped>
-.fade-enter-active {
-  @apply duration-500 ease-out;
-}
-.fade-enter-from {
-  @apply transform opacity-0;
-}
-.fade-enter-to {
-  @apply opacity-100;
-}
-.fade-leave-active {
-  @apply transform duration-500 ease-in;
-}
-.fade-leave-from {
-  @apply opacity-100;
-}
-.fade-leave-to {
-  @apply opacity-0;
-}
-</style>
