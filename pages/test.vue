@@ -64,7 +64,7 @@
           >
             <div
               v-if="showChangelog"
-              class="h-[450px] w-80 bg-white rounded-lg shadow-2xl absolute left-[calc(50%+14px)] bottom-[calc(50%+14px)] origin-bottom-left overflow-hidden border border-gray-100"
+              class="h-[450px] w-80 z-20 bg-white rounded-lg shadow-2xl absolute left-[calc(50%+14px)] bottom-[calc(50%+14px)] origin-bottom-left overflow-hidden border border-gray-100"
             >
               <div
                 v-if="!iframeLoaded"
@@ -89,7 +89,9 @@
       <header
         class="border-b p-4 flex items-center justify-between sticky top-0 bg-white"
       >
-        <div class="flex w-1/2 p-3 items-center bg-slate-200 rounded-full">
+        <div
+          class="flex w-full sm:w-1/2 p-3 items-center bg-slate-200 rounded-full"
+        >
           <base-icon
             name="fluent:search-24-filled"
             class="h-4 w-4 text-slate-400"
@@ -98,7 +100,7 @@
             Search your transactions, accounts, cards etc...
           </p>
         </div>
-        <div class="flex items-center space-x-2">
+        <div class="hidden sm:flex items-center space-x-2">
           <div class="rounded-full bg-slate-200 p-3">
             <base-icon
               name="fluent:alert-badge-24-filled"
@@ -122,7 +124,7 @@
               :key="n"
             ></div>
           </div>
-          <div class="grid grid-cols-4 lg:grid-cols-2 gap-6">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div
               class="h-96 rounded-lg bg-white border shadow-sm"
               v-for="n in 4"
@@ -133,6 +135,7 @@
       </div>
     </section>
     <test-sidebar v-if="sidebar" @close="sidebar = false" ref="overlayWidget" />
+    <test-arrow v-if="!showChangelog" class="fixed bottom-24 left-32 z-0" />
   </main>
 </template>
 

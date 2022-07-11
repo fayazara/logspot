@@ -10,7 +10,7 @@
         :label="`v ${content.version}`"
         class="absolute -top-6 right-0 md:static mb-4"
       />
-      <h1 v-if="content.title" class="text-2xl sm:text-3xl font-bold mb-4">
+      <h1 v-if="content.title" class="text-xl sm:text-3xl font-bold mb-4">
         {{ content.title }}
       </h1>
       <ContentRenderer :value="content" class="document" />
@@ -33,12 +33,12 @@ const props = defineProps({
   @apply absolute -bottom-2 left-0 w-px bg-slate-200 -top-3 md:top-2.5;
 }
 .content-date {
-  @apply pl-7 text-sm leading-6 text-slate-500 md:w-1/4 md:pl-0 md:pr-12 md:text-right;
+  @apply pl-7 text-xs sm:text-sm leading-6 text-slate-500 md:w-1/4 md:pl-0 md:pr-12 md:text-right;
 }
 .content-block {
   @apply relative pt-2 pl-7 md:w-3/4 md:pt-0 md:pl-12 pb-16;
 }
 .document {
-  @apply max-w-none prose-h3:mb-4 prose-h3:text-base prose-h3:leading-6 prose-sm prose prose-slate prose-a:font-semibold prose-a:text-primary hover:prose-a:text-sky-600;
+  @apply max-w-none prose-h3:mb-4 prose-h3:text-base prose-h3:leading-6 prose-sm prose prose-pre:text-base prose-slate prose-a:font-semibold prose-a:text-primary hover:prose-a:text-sky-600;
 }
 </style>

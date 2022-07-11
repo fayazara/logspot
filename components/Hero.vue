@@ -11,7 +11,14 @@
       </div>
       <p class="mt-4 text-base leading-7 text-slate-600">
         Logspot is an open source change log template made with Nuxt, Vue, and
-        Tailwindcss.
+        Tailwindcss. Subscribe to our newsletter to get the latest updates or
+        follow us on
+        <a
+          class="text-primary underline"
+          href="https://twitter.com/elonmusk"
+          target="_blank"
+          >twitter</a
+        >.
       </p>
       <form
         action="https://app.convertkit.com/forms/1074308/subscriptions"
