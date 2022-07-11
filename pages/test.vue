@@ -50,7 +50,7 @@
         <div class="relative" ref="floatingWidget">
           <button @click="showChangelog = !showChangelog">
             <base-icon
-              name="fluent:note-24-regular"
+              name="fluent:alert-badge-24-filled"
               class="h-6 w-6 text-slate-400"
             />
           </button>

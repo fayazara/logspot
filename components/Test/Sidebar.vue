@@ -35,14 +35,15 @@
             <div
               v-if="show"
               class="pointer-events-auto w-screen max-w-md relative"
+              ref="slideOver"
             >
               <div
-                class="absolute top-0 left-0 -ml-8 flex pt-4 pr-2 sm:-ml-10 sm:pr-4"
+                class="absolute top-0 left-0 -ml-8 flex pt-2 pr-2 sm:-ml-10 sm:pr-4"
               >
                 <button
                   @click="close"
                   type="button"
-                  class="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+                  class="rounded-md text-gray-100 focus:outline-none focus:ring-2 focus:ring-white h-8 w-8 flex items-center justify-center"
                 >
                   <span class="sr-only">Close panel</span>
 
@@ -87,6 +88,8 @@ function close() {
     emit("close");
   }, 500);
 }
+const slideOver = ref(null);
+useClickOutside(slideOver, () => close());
 onMounted(() => {
   show.value = true;
   document.body.style.setProperty("overflow", "hidden");
