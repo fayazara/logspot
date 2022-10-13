@@ -23,33 +23,30 @@
       </svg>
       <!-- Sample Logo  -->
       <div class="space-y-8">
-        <base-icon
-          name="fluent:channel-24-regular"
-          class="h-6 w-6 text-sky-600"
-        />
-        <base-icon
+        <icon name="fluent:channel-24-regular" class="h-6 w-6 text-sky-600" />
+        <icon
           name="fluent:data-pie-24-regular"
           class="h-6 w-6 text-slate-400"
         />
-        <base-icon
+        <icon
           name="fluent:mail-inbox-24-regular"
           class="h-6 w-6 text-slate-400"
         />
-        <base-icon
+        <icon
           name="fluent:wallet-credit-card-24-regular"
           class="h-6 w-6 text-slate-400"
         />
       </div>
       <div class="space-y-8">
         <button @click="sidebar = true" class="relative">
-          <base-icon
+          <icon
             name="fluent:panel-right-28-filled"
             class="h-6 w-6 text-slate-400"
           />
         </button>
         <div class="relative" ref="floatingWidget">
           <button @click="showChangelog = !showChangelog">
-            <base-icon
+            <icon
               name="fluent:alert-badge-24-filled"
               class="h-6 w-6 text-slate-400"
             />
@@ -92,23 +89,24 @@
         <div
           class="flex w-full sm:w-1/2 p-3 items-center bg-slate-200 rounded-full"
         >
-          <base-icon
-            name="fluent:search-24-filled"
-            class="h-4 w-4 text-slate-400"
-          />
+          <icon name="fluent:search-24-filled" class="h-4 w-4 text-slate-400" />
           <p class="text-sm text-slate-400 ml-4 truncate">
             Search your transactions, accounts, cards etc...
           </p>
         </div>
         <div class="hidden sm:flex items-center space-x-2">
-          <div class="rounded-full bg-slate-200 p-3">
-            <base-icon
+          <div
+            class="rounded-full bg-slate-200 p-3 flex-shrink-0 h-12 w-12 flex items-center justify-center"
+          >
+            <icon
               name="fluent:alert-badge-24-filled"
               class="h-5 w-5 text-slate-600"
             />
           </div>
-          <div class="rounded-full bg-slate-200 p-3">
-            <base-icon
+          <div
+            class="rounded-full bg-slate-200 p-3 flex-shrink-0 h-12 w-12 flex items-center justify-center"
+          >
+            <icon
               name="fluent:person-24-filled"
               class="h-5 w-5 text-slate-600"
             />
@@ -147,3 +145,9 @@ const sidebar = ref(false);
 const floatingWidget = ref(null);
 useClickOutside(floatingWidget, () => (showChangelog.value = false));
 </script>
+
+<style scoped>
+.icon {
+  display: block !important;
+}
+</style>

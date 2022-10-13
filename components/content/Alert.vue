@@ -23,7 +23,7 @@ defineProps({
     :class="variant"
   >
     <span class="icon-container">
-      <base-icon :name="icon" class="h-7 w-7 icon" :class="variant" />
+      <icon :name="icon" class="h-7 w-7 icon" :class="variant" />
     </span>
     <div>
       <h3>{{ title }}</h3>

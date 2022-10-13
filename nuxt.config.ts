@@ -1,8 +1,5 @@
-import { defineNuxtConfig } from 'nuxt'
-
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
-export default defineNuxtConfig({
-    modules: ['@nuxtjs/tailwindcss', '@nuxt/content'],
+export default ({
+    modules: ['@nuxtjs/tailwindcss', '@nuxt/content', 'nuxt-icon'],
     content: {
         highlight: {
             theme: 'nord',

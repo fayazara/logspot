@@ -36,7 +36,7 @@
             class="form-input"
             placeholder="Subscribe via email"
           />
-          <base-icon
+          <icon
             name="fluent:mail-24-regular"
             class="pointer-events-none absolute top-2 left-3 h-6 w-6 stroke-slate-400"
           />
