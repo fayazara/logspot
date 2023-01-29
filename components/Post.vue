@@ -1,6 +1,6 @@
 <template>
   <article class="md:flex">
-    <h2 class="content-date h-full sticky top-0">
+    <h2 class="content-date h-full mt-px">
       <a href="#2022-06-23">{{ content.date }}</a>
     </h2>
     <div class="content-block">

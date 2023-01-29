@@ -15,36 +15,11 @@
         follow us on
         <a
           class="text-primary underline"
-          href="https://twitter.com/elonmusk"
+          href="https://twitter.com/fayazara"
           target="_blank"
           >twitter</a
         >.
       </p>
-      <form
-        action="https://app.convertkit.com/forms/1074308/subscriptions"
-        method="post"
-        class="mt-6 flex justify-center"
-      >
-        <h2 class="sr-only">Subscribe via email</h2>
-        <div class="relative w-64 shrink">
-          <label for="subscribe-email" class="sr-only">Email address</label
-          ><input
-            id="subscribe-email"
-            name="email_address"
-            type="email"
-            required=""
-            class="form-input"
-            placeholder="Subscribe via email"
-          />
-          <icon
-            name="fluent:mail-24-regular"
-            class="pointer-events-none absolute top-2 left-3 h-6 w-6 stroke-slate-400"
-          />
-        </div>
-        <button type="submit" class="form-submit">
-          <span>Subscribe</span>
-        </button>
-      </form>
     </div>
   </header>
 </template>
