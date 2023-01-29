@@ -4,7 +4,7 @@
       v-for="(author, i) in authors"
       :key="i"
       class="relative inline-block h-8 w-8 rounded-full ring-2 ring-white"
-      :class="`z-${(i + 1) * 10}`"
+      :style="{ zIndex: authors.length - i }"
       :src="author.avatar"
       alt=""
     />

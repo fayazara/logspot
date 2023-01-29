@@ -1,7 +1,7 @@
 <template>
-  <article id="2022-06-23" aria-labelledby="2022-06-23-heading" class="md:flex">
-    <h2 id="2022-06-23-heading" class="content-date">
-      <a class="sticky top-8" href="#2022-06-23">{{ content.date }}</a>
+  <article class="md:flex">
+    <h2 class="content-date h-full sticky top-0">
+      <a href="#2022-06-23">{{ content.date }}</a>
     </h2>
     <div class="content-block">
       <div class="feed-border"></div>
