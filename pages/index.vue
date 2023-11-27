@@ -37,12 +37,19 @@ const { data } = await useAsyncData("feed", () =>
   queryContent("/posts").find()
 );
 const sorted_data = data.value.sort((a, b) => {
-  if (a.version < b.version) {
-    return 1;
-  } else if (a.version > b.version) {
-    return -1;
-  } else {
-    return 0;
+  const a_version = a.version.split('.').map(Number);
+  const b_version = b.version.split('.').map(Number);
+  const max_length = Math.max(a_version.length, b_version.length);
+  for (let i = 0; i < max_length; i++) {
+    const a_part = a_version[i] || 0;
+    const b_part = b_version[i] || 0;
+    if (a_part < b_part) {
+      return 1;
+    } else if (a_part > b_part) {
+      return -1;
+    }
   }
+  return 0;
 });
+
 </script>
