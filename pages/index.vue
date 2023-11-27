@@ -7,7 +7,7 @@
     <section
       class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
-      <post v-for="post in data" :content="post" />
+      <post v-for="post in sorted_data" :content="post" />
     </section>
   </main>
 </template>
@@ -36,4 +36,13 @@ useHead({
 const { data } = await useAsyncData("feed", () =>
   queryContent("/posts").find()
 );
+const sorted_data = data.value.sort((a, b) => {
+  if (a.version < b.version) {
+    return 1;
+  } else if (a.version > b.version) {
+    return -1;
+  } else {
+    return 0;
+  }
+});
 </script>
