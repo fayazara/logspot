@@ -29,6 +29,7 @@ description: This will pick up colors from your primary color set in the tailwin
 ```
 This above content will render a alert component, something like this
 <img width="719" alt="Screenshot2023-01-30 at 01 17 36@2x" src="https://user-images.githubusercontent.com/15716057/215352019-66f4fb5f-1c2b-4ea0-a596-671aa9a99b51.png">
+
 8. Widget page, Logspot also has a page specifically meant for widgets, here's an [example](https://logspot.vercel.app/test)
 
 
