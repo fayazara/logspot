@@ -1,5 +1,4 @@
-[<img src="https://github.com/user-attachments/assets/60e89805-26fd-4074-8ced-447fb148c7e6">](http://supersaas.dev?ref=github)
-
+[<img src="https://essentials.supersaas.dev/supersaas-banner.png">](http://supersaas.dev?ref=github-logspot)
 
 # Logspot
 
