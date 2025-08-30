@@ -26,5 +26,6 @@
     "@tailwindcss/typography": "^0.5.16",
     "eslint": "^9.34.0",
     "typescript": "^5.9.2"
-  }
+  },
+  "packageManager": "pnpm@10.15.0"
 }
