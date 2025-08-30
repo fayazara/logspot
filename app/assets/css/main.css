@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+@import '@nuxt/ui';
+@plugin "@tailwindcss/typography";
+
+@theme static {
+  --font-sans: 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+}
+
+* {
+  scrollbar-color: var(--ui-bg-accented) transparent;
+  scrollbar-width: thin;
+}
+
+:root {
+  --ui-radius: 0.325rem;
+}
